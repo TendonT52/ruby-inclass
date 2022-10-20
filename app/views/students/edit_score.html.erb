@@ -10,7 +10,9 @@
 <% @student.score.each do |score| %>
   <div>
   <%= render score %>
-  <%= link_to "Edit this score", edit_score_path(score) %> |
+  <%if session[:logged_in]%>
+   <%= link_to "Edit this score", edit_score_path(score) %> |
+  <%end%>
   <%= link_to "Destroy this score", score, method: :delete %>
   </div>
 <% end %>
